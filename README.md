@@ -1,37 +1,28 @@
-![](puszczanet.png)
-
 # puszczanet
 
-![v0.1a](https://img.shields.io/badge/puszczanet-v0.1a-green)
+puszczanet to bez-kontaktowy sposób komunikacji 19PDH.
 
-puszczanet to rozproszona sieć typu [sneakernet](https://pl.wikipedia.org/wiki/Sneakernet) stworzona w celu stworzenia prywatnego, bez-kontaktowego sposobu komunikacji i wymiany zasobów cyfrowych w 19 PDH Puszcza.
-
-## Adresacja
-
-Cel wiadomości wyznaczają współrzędne geograficzne przedstawione w formacie kodu QR. Współrzędne wskazują na kryjówkę, skrzynkę do której ma zostać dostarczona wiadomość. Skrytka musi mieć na sobie symbol puszczanet-u.
-
-## Wysyłanie wiadomości
-
-Aby wysłać wiadomość trzeba zakodować współrzędne skrytki docelowej aby miała formę [adresu](#adresacja). Następnie należy przymocować kod qr do nośnika danych (uniwersalnym sposobem jest włożenie nośnika do koperty i naklejenie/nadrukowanie adresu na kopercie).
-
-Przygotowaną wiadomość należy zanieść do znanej skrytki innego harcerza użytkującego z sieci.
+Szczegółowy opis jest w [spec.md](spec.md), a poniżej jest skrócona wersja.
 
 ## Skrytki
 
-Skrytki muszą być oznaczone znakiem puszczanet-u.
+Tak jak standardowa poczta ma skrzynki na listy, tak puszczanet ma skrytki. Każdy sam tworzy swoją skrytkę, która może mieć dowolną postać. Ważne żeby w środku zmieściła się wiadomość (zazwyczaj zwykła koperta). Skrytka musi być oznaczona symbolem [puszczanet'u](puszczanet.png).
 
-## Wyznaczanie drogi (routing)
+## Adres
 
-Wiadomość zanim trafi do punktu docelowego, może przejść przez kilka adresów pośrednich. Droga wiadomości jest zapisywana na kopercie/wiadomości, aby znać poszczególne punkty, które już odwiedziła wiadomość. Droga musi być znana, ponieważ wiadomość nie może trafić 2 razy do tej samej skrytki.
+Aby wysłać do kogoś wiadomość trzeba znać adres jego skrytki. Adres to współrzędne geograficzne skrytki. Dla ułatwienia współrzędne powinny być przedstawione w postaci kodu QR.
 
-Droga wiadomości jest wyznaczana przez algorytm "chęci":
+Można wygenerować samemu kod QR przez skopiowanie współrzędnych z google maps itd.
 
-1. Harcerz sprawdza swoją prywatnę skrytkę.
-2. Jeśli w skrytce znajduje się wiadomść, należy odczytać lokalizacje.
-3. Następnie sprawdzana jest droga wiadomości, czy jest prawidłowa.
-4. Jeżeli droga jest prawidłowa, to harcerz może dostarczyć wiadomość do adresu docelowego, lub jeśli zna adres, który nie był jeszcze wymieniony w drodze wiadomości, to w zależności od **chęci** może dostraczyć wiadomość do kolejnego punktu pośredniego.
-5. Do drogi wiadomości harcerz dopisuje siebie.
+Albo można użyć https://19pdh.github.io/puszczanet-addr i wskazać tam położenie skrytki.
 
-### Przerywanie transmisji
+## Wysyłanie wiadomości
 
-W przypadku jeżeli droga wiadomości nie jest prawidłowa, albo odbiorca wiadomości nie ufa pośrednikom wiadomości wymienionymi w drodze, wtedy można przerwać transmisję wiadomości. Należy odesłać wiadomość do skrzynki początkowej z odpowiednią wiadomością tłumaczącą powód przerwania.
+Na wiadomości trzeba nakleić adres. Obok adresu należy wpisać swój pseudonim, imię lub nick (coś do rozpoznania nadawcy). Po tym można albo
+
+- zanieść bezpośrednio do odbiorcy, albo...
+- zanieść do innej osoby z drużyny - wtedy ta osoba wpisuje się obok nadawcy i przekazać wiadomość dalej. Ważne jest to że wiadomość nie może drugi raz trafić do tej samej osoby / skrytki (dlatego każda osoba pośrednia musi wpisać się na kopercie wiadomości).
+
+## Przesyłanie plików
+
+Pomysł na puszczanet bazuje na siecie komputerowej typu [sneakernet](https://pl.wikipedia.org/wiki/Sneakernet), więc w teorii można włożyć do koperty pendrive'a i tak przesyłać pliki. Należy jednak pamiętać, że w ten sposób łatwiej przemieszczają się wirusy komputerowe, więc nie podłączaj pendrivów od niezaufanych osób i **koniecznie** miej zainstalowanego antywirusa.
