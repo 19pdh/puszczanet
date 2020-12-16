@@ -2,7 +2,7 @@
 
 # puszczanet
 
-puszczanet to bez-kontaktowy sposób komunikacji 19PDH.
+puszczanet to bezkontaktowy sposób komunikacji 19PDH.
 
 Szczegółowy opis jest w [spec.md](spec.md), a poniżej jest skrócona wersja.
 
